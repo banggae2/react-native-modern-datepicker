@@ -56,6 +56,33 @@ const gregorianConfigs = {
   timeClose: 'Close',
 };
 
+const gregorian_korean_Configs = {
+  dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+  dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+  monthNames: [
+    '1월',
+    '2월',
+    '3월',
+    '4월',
+    '5월',
+    '6월',
+    '7월',
+    '8월',
+    '9월',
+    '10월',
+    '11월',
+    '12월',
+  ],
+  selectedFormat: 'YYYY/MM/DD',
+  dateFormat: 'YYYY/MM/DD',
+  monthYearFormat: 'YYYY MM',
+  timeFormat: 'HH:mm',
+  hour: '시',
+  minute: '분',
+  timeSelect: '선택',
+  timeClose: '닫기',
+};
+
 class utils {
   constructor({minimumDate, maximumDate, isGregorian, mode, reverse, configs}) {
     this.data = {
@@ -64,7 +91,7 @@ class utils {
       isGregorian,
       reverse: reverse === 'unset' ? !isGregorian : reverse,
     };
-    this.config = isGregorian ? gregorianConfigs : jalaaliConfigs;
+    this.config = isGregorian ? gregorianConfigs : gregorian_korean_Configs;
     this.config = {...this.config, ...configs};
     if (mode === 'time' || mode === 'datepicker') {
       this.config.selectedFormat = this.config.dateFormat + ' ' + this.config.timeFormat;
